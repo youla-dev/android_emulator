@@ -21,7 +21,7 @@ install_apks() {
 
 run_tests() {
     echo -ne "${BGreen}Запуск тестов...${BGreen}\n"
-    adb shell am instrument -w com.example.lightson/com.example.lightson.TestRunner
+    adb shell am instrument -w -m -e clearPackageData true -e debug false -e class 'com.example.lightson.test.ui.TrafficTest' com.example.lightson.test/com.example.lightson.TestRunner
 }
 
 export_reports() {
